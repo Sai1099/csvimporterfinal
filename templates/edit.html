@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data</title>
+</head>
+<body>
+    <h1>Edit Data</h1>
+
+    {% if uploaded_data %}
+        {% for row in uploaded_data %}
+            <form method="post" action="{{ url_for('edit_data') }}">
+                <input type="hidden" name="_id" value="{{ row._id }}">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="{{ row.name }}" readonly>
+                </div>
+                <div>
+                    <label for="gmail">Email:</label>
+                    <input type="text" id="gmail" name="gmail" value="{{ row.gmail }}" readonly>
+                </div>
+                <div>
+                    <label for="phno">Phone Number:</label>
+                    <input type="text" id="phno" name="phno" value="{{ row.phno }}" readonly>
+                </div>
+                <div>
+                    <label for="rollno">Roll Number:</label>
+                    <input type="text" id="rollno" name="rollno" value="{{ row.rollno }}" readonly>
+                </div>
+                <div>
+                    <button type="submit">Edit Data</button>
+                </div>
+            </form>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

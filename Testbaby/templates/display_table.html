@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Table</title>
+</head>
+<body>
+    <h1>Uploaded Data</h1>
+
+    {% if uploaded_data %}
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Roll Number</th>
+            </tr>
+            {% for row in uploaded_data %}
+                <tr>
+                    <td>{{ row.name }}</td>
+                    <td>{{ row.gmail }}</td>
+                    <td>{{ row.phno }}</td>
+                    <td>{{ row.rollno }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <!-- Link to go back to the index page -->
+        <!-- Link to go to the edit_data page -->
+        <a href="{{ url_for('edit') }}">Continue</a>
+
+        
+    {% endif %}
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Data</title>
+</head>
+<body>
+    <h1>Uploaded Data</h1>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    {% if uploaded_data %}
+        {% for row in uploaded_data %}
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" value="{{ row.name }}" readonly>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email" value="{{ row.gmail }}" readonly>
+            </div>
+            <div>
+                <label for="phno">Phone Number:</label>
+                <input type="text" id="phno" value="{{ row.phno }}" readonly>
+            </div>
+            <div>
+                <label for="rollno">Roll Number:</label>
+                <input type="text" id="rollno" value="{{ row.rollno }}" readonly>
+            </div>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Excel File</title>
+</head>
+<body>
+    <h1>Upload Excel File</h1>
+    
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="file">Select an Excel file (.csv):</label>
+        <input type="file" name="file" accept=".csv" required>
+        <br>
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    {% if data %}
+        <h2>Uploaded Data</h2>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Roll Number</th>
+            </tr>
+            {% for row in data %}
+                <tr>
+                    <td>{{ row.name }}</td>
+                    <td>{{ row.email }}</td>
+                    <td>{{ row.phno }}</td>
+                    <td>{{ row.rollno }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Data</title>
+</head>
+<body>
+    <h1>Uploaded Data</h1>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    {% if uploaded_data %}
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Gmail</th>
+                <th>Phone Number</th>
+                <th>Roll Number</th>
+            </tr>
+            {% for row in uploaded_data %}
+                <tr>
+                    <td>{{ row.name }}</td>
+                    <td>{{ row.gmail }}</td>
+                    <td>{{ row.phno }}</td>
+                    <td>{{ row.rollno }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    <button>Continue</button>
+    {% endif %}
+
+</body>
+</html>
